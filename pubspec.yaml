@@ -1,0 +1,14 @@
+name: awesome
+description: A library containing AWESOME components
+version: 0.0.1
+homepage: https://fullstackchannel.dev
+
+environment:
+  sdk: ">=2.18.4 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
