@@ -46,38 +46,38 @@ class _TapScaleState extends State<TapScale> {
           }
         });
       },
-      onLongPress: widget.onLongPress,
-      onLongPressDown: widget.onLongPress != null
-          ? (_) {
-              setState(() {
-                _pressed = true;
-              });
-            }
-          : null,
-      onLongPressUp: widget.onTapCancel != null
-          ? () {
-              setState(() {
-                _pressed = false;
-              });
-              widget.onTapCancel!();
-            }
-          : null,
-      onLongPressEnd: widget.onTapCancel != null
-          ? (_) {
-              setState(() {
-                _pressed = false;
-              });
-              widget.onTapCancel!();
-            }
-          : null,
-      onLongPressCancel: widget.onTapCancel != null
-          ? () {
-              setState(() {
-                _pressed = false;
-              });
-              widget.onTapCancel!();
-            }
-          : null,
+      onLongPress: () {
+        setState(() {
+          _pressed = false;
+        });
+        widget.onLongPress?.call();
+      },
+      onLongPressDown: (_) {
+        setState(() {
+          _pressed = true;
+        });
+      },
+      onLongPressUp: () {
+        widget.onTapCancel?.call();
+        setState(() {
+          _pressed = false;
+        });
+        widget.onTapCancel!();
+      },
+      onLongPressEnd: (_) {
+        widget.onTapCancel?.call();
+        setState(() {
+          _pressed = false;
+        });
+        widget.onTapCancel!();
+      },
+      onLongPressCancel: () {
+        widget.onTapCancel?.call();
+        setState(() {
+          _pressed = false;
+        });
+        widget.onTapCancel!();
+      },
       onTap: widget.onTap,
       child: AnimatedScale(
         curve: Curves.easeInOut,
