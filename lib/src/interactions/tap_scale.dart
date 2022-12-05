@@ -62,21 +62,18 @@ class _TapScaleState extends State<TapScale> {
         setState(() {
           _pressed = false;
         });
-        widget.onTapCancel!();
       },
       onLongPressEnd: (_) {
         widget.onTapCancel?.call();
         setState(() {
           _pressed = false;
         });
-        widget.onTapCancel!();
       },
       onLongPressCancel: () {
         widget.onTapCancel?.call();
         setState(() {
           _pressed = false;
         });
-        widget.onTapCancel!();
       },
       onTap: widget.onTap,
       child: AnimatedScale(

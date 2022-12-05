@@ -9,7 +9,7 @@ enum ExpansionState {
   expanded;
 }
 
-class DraggableBottomBar extends StatefulWidget {
+class DraggableBottomSheet extends StatefulWidget {
   final Widget child;
   final Widget bar;
   final Widget modal;
@@ -18,7 +18,7 @@ class DraggableBottomBar extends StatefulWidget {
   final Function()? onChange;
   final Function(bool value)? onThreshold;
   final double stepLocation;
-  const DraggableBottomBar({
+  const DraggableBottomSheet({
     required this.child,
     required this.bar,
     required this.modal,
@@ -32,10 +32,10 @@ class DraggableBottomBar extends StatefulWidget {
         assert(0.8 > stepLocation);
 
   @override
-  State<DraggableBottomBar> createState() => _DraggableBottomBarState();
+  State<DraggableBottomSheet> createState() => _DraggableBottomSheetState();
 }
 
-class _DraggableBottomBarState extends State<DraggableBottomBar>
+class _DraggableBottomSheetState extends State<DraggableBottomSheet>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
